@@ -156,7 +156,7 @@ tailwind.config = {
   <!-- Announcement Bar -->
   <div class="bg-brand-fg text-brand-bg anim-fade" style="animation-delay: 0s;">
     <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center gap-4 text-sm font-sans tracking-wide">
-      <span class="opacity-80">Now accepting new clients for Q3 2025. Limited availability.</span>
+      <span class="opacity-80">Now accepting new clients for Q3 2026. Limited availability.</span>
       <a id="announce-cta" href="#contact" class="inline-flex items-center gap-1.5 border border-brand-bg/30 rounded-full px-4 py-1 text-xs font-medium hover:bg-brand-bg/10 transition-colors">
         Get in touch
       </a>
@@ -212,14 +212,14 @@ tailwind.config = {
       </p>
 
       <!-- CTA Search-style input (TrumpRx style) -->
-      <div class="mt-12 flex items-center justify-center gap-0 anim-fade-up delay-900">
+      <div class="mt-12 mb-8 flex items-center justify-center gap-0 anim-fade-up delay-900">
         <div class="relative flex items-center bg-white rounded-l-full border border-brand-fg/10 shadow-lg shadow-brand-primary/5">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ad854a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-6 mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <input type="email" placeholder="Enter your email for a consultation" class="w-72 md:w-96 py-4 pr-4 bg-transparent font-sans text-brand-fg placeholder:text-brand-fg/30 outline-none text-sm">
+          <input type="email" id="hero-email" placeholder="Enter your email for a consultation" class="w-72 md:w-96 py-4 pr-4 bg-transparent font-sans text-brand-fg placeholder:text-brand-fg/30 outline-none text-sm">
         </div>
-        <button class="bg-brand-fg text-brand-bg font-sans text-sm font-medium px-8 py-4 rounded-r-full hover:bg-brand-primary transition-colors duration-300 whitespace-nowrap">
+        <a href="#booking" class="bg-brand-fg text-brand-bg font-sans text-sm font-medium px-8 py-4 rounded-r-full hover:bg-brand-primary transition-colors duration-300 whitespace-nowrap">
           Get Started
-        </button>
+        </a>
       </div>
     </div>
 
@@ -337,10 +337,10 @@ tailwind.config = {
           </h2>
           <div class="w-16 h-px bg-brand-secondary mt-8 mb-8"></div>
           <p class="font-sans text-brand-bg/50 leading-relaxed mb-6">
-            At Maison Nemo, we believe that entering a new market is not about translation — it's about transformation. Our team of culturally bilingual strategists works at the intersection of East and West.
+            At Maison Nemo, we believe that entering a new market is not about translation — it's about transformation. With 7+ years of experience in strategic communications for leading international brands, we bring deep expertise in cross-cultural storytelling.
           </p>
           <p class="font-sans text-brand-bg/50 leading-relaxed mb-10">
-            We've guided luxury, beauty, lifestyle, and technology brands through the complex landscape of cross-cultural communication, turning market entry into market leadership.
+            Our founder has led PR campaigns for global companies across luxury, retail, travel, and FMCG sectors — now focused on helping Asian brands connect authentically with European audiences.
           </p>
           <a id="approach-cta-link" href="#contact" class="inline-flex items-center gap-3 font-sans text-sm font-medium text-brand-bg border border-brand-bg/20 rounded-full px-8 py-3.5 hover:bg-brand-bg hover:text-brand-dark transition-all duration-300">
             <span>Work with us</span>
@@ -352,22 +352,41 @@ tailwind.config = {
         <div class="scroll-reveal" style="transition-delay: 0.2s;">
           <div class="grid grid-cols-2 gap-8">
             <div class="border-l border-brand-secondary/30 pl-6">
+              <span class="font-serif text-5xl gradient-gold">7+</span>
+              <p class="font-sans text-brand-bg/40 text-sm mt-2">Years of strategic communications experience</p>
+            </div>
+            <div class="border-l border-brand-secondary/30 pl-6">
+              <span class="font-serif text-5xl gradient-gold">15+</span>
+              <p class="font-sans text-brand-bg/40 text-sm mt-2">Major brand campaigns delivered</p>
+            </div>
+            <div class="border-l border-brand-secondary/30 pl-6">
+              <span class="font-serif text-5xl gradient-gold">3</span>
+              <p class="font-sans text-brand-bg/40 text-sm mt-2">Markets: Spain, Europe & Asia</p>
+            </div>
+            <div class="border-l border-brand-secondary/30 pl-6">
               <span class="font-serif text-5xl gradient-gold">50+</span>
-              <p class="font-sans text-brand-bg/40 text-sm mt-2">Brands launched across continents</p>
-            </div>
-            <div class="border-l border-brand-secondary/30 pl-6">
-              <span class="font-serif text-5xl gradient-gold">12</span>
-              <p class="font-sans text-brand-bg/40 text-sm mt-2">Years of cross-cultural expertise</p>
-            </div>
-            <div class="border-l border-brand-secondary/30 pl-6">
-              <span class="font-serif text-5xl gradient-gold">8</span>
-              <p class="font-sans text-brand-bg/40 text-sm mt-2">Cities across Asia & Europe</p>
-            </div>
-            <div class="border-l border-brand-secondary/30 pl-6">
-              <span class="font-serif text-5xl gradient-gold">200+</span>
-              <p class="font-sans text-brand-bg/40 text-sm mt-2">Successful PR campaigns delivered</p>
+              <p class="font-sans text-brand-bg/40 text-sm mt-2">Media placements secured</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Trusted By Section -->
+      <div class="mt-24 scroll-reveal">
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary text-center mb-10">Brands we've worked with</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-60">
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Desigual</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Hinemos Sake</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Vueling</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Lululab</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">PepsiCo</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Prinker</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Lidl</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">MediHeal</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Nestlé</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Sakari</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">CaixaBank</span>
+          <span class="font-sans text-lg text-brand-bg/70 font-medium">Roca Group</span>
         </div>
       </div>
     </div>
@@ -400,20 +419,27 @@ tailwind.config = {
         <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
           <div class="flex items-center gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">03</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Lifestyle & Hospitality</h3>
+            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Food, Gastronomy & Beverages</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
         <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
           <div class="flex items-center gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">04</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Lifestyle & Hospitality</h3>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
+        <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-8">
+            <span class="font-sans text-sm text-brand-fg/30 font-medium">05</span>
             <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Technology & Innovation</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
         <div class="scroll-reveal group border-t border-b border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
           <div class="flex items-center gap-8">
-            <span class="font-sans text-sm text-brand-fg/30 font-medium">05</span>
+            <span class="font-sans text-sm text-brand-fg/30 font-medium">06</span>
             <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Art & Culture</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -433,11 +459,11 @@ tailwind.config = {
       </blockquote>
       <div class="mt-10 flex items-center justify-center gap-4">
         <div class="w-12 h-12 rounded-full bg-brand-secondary/20 flex items-center justify-center">
-          <span class="font-serif text-brand-primary text-lg font-bold">MN</span>
+          <span class="font-serif text-brand-primary text-lg font-bold">NJ</span>
         </div>
         <div class="text-left">
-          <p class="font-sans text-sm font-medium text-brand-fg">Maison Nemo</p>
-          <p class="font-sans text-xs text-brand-fg/40">Founder & Creative Director</p>
+          <p class="font-sans text-sm font-medium text-brand-fg">Nuria Jiménez</p>
+          <p class="font-sans text-xs text-brand-fg/40">Founder, Maison Nemo</p>
         </div>
       </div>
     </div>
@@ -581,19 +607,20 @@ tailwind.config = {
           </div>
 
           <div class="scroll-reveal" style="transition-delay: 0.2s;">
-            <form class="space-y-5">
+            <form action="https://formspree.io/f/hello@maison-nemo.com" method="POST" class="space-y-5">
               <div>
-                <input type="text" placeholder="Your name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors">
+                <input type="text" name="name" placeholder="Your name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors">
               </div>
               <div>
-                <input type="email" placeholder="Email address" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors">
+                <input type="email" name="email" placeholder="Email address" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors">
               </div>
               <div>
-                <input type="text" placeholder="Your brand / company" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors">
+                <input type="text" name="company" placeholder="Your brand / company" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors">
               </div>
               <div>
-                <textarea placeholder="Tell us about your project" rows="3" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors resize-none"></textarea>
+                <textarea name="message" placeholder="Tell us about your project" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 font-sans text-sm text-brand-bg placeholder:text-brand-bg/30 outline-none focus:border-brand-secondary/50 transition-colors resize-none"></textarea>
               </div>
+              <input type="hidden" name="_subject" value="New inquiry from Maison Nemo website">
               <button type="submit" class="w-full bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-sans text-sm font-medium rounded-xl py-4 hover:opacity-90 transition-opacity">
                 Send Inquiry
               </button>
