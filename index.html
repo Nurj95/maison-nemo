@@ -168,17 +168,14 @@ tailwind.config = {
     <div class="max-w-7xl mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
       <!-- Logo -->
       <a id="nav-home-link" href="#" class="flex items-center">
-        <img src="Maison_Nemo-4.png" alt="Maison Nemo" class="h-10 w-auto">
+        <img src="Maison_Nemo-4.png" alt="Maison Nemo" class="h-14 w-auto">
       </a>
       <!-- Nav links -->
       <div class="flex items-center gap-8">
         <a id="nav-services-link" href="#services" class="nav-link font-sans text-sm text-brand-fg/70 hover:text-brand-fg transition-colors">Services</a>
         <a id="nav-approach-link" href="#approach" class="nav-link font-sans text-sm text-brand-fg/70 hover:text-brand-fg transition-colors">Approach</a>
         <a id="nav-about-link" href="#about" class="nav-link font-sans text-sm text-brand-fg/70 hover:text-brand-fg transition-colors">About</a>
-        <a id="nav-pr-events-link" href="#services" class="font-sans text-sm border border-brand-fg/20 rounded-full px-5 py-2 text-brand-fg hover:bg-brand-fg hover:text-brand-bg transition-all duration-300">PR & Events</a>
-        <button class="w-9 h-9 flex items-center justify-center border border-brand-fg/20 rounded-full hover:bg-brand-fg hover:text-brand-bg transition-all duration-300 text-brand-fg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </button>
+        <a id="nav-pr-events-link" href="#contact" class="font-sans text-sm border border-brand-fg/20 rounded-full px-5 py-2 text-brand-fg hover:bg-brand-fg hover:text-brand-bg transition-all duration-300">Get in Touch</a>
       </div>
     </div>
   </nav>
@@ -373,7 +370,7 @@ tailwind.config = {
 
       <!-- Trusted By Section -->
       <div class="mt-24 scroll-reveal">
-        <p class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary text-center mb-10">Brands we've worked with</p>
+        <p class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary text-center mb-10">Trusted by</p>
         <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-60">
           <span class="font-sans text-lg text-brand-bg/70 font-medium">Desigual</span>
           <span class="font-sans text-lg text-brand-bg/70 font-medium">Hinemos Sake</span>
@@ -448,22 +445,42 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- About / Quote Section -->
+  <!-- About / Founder Section -->
   <section id="about" class="py-32 px-6 md:px-10">
-    <div class="max-w-4xl mx-auto text-center scroll-reveal">
-      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center mx-auto mb-10">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="1"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-      </div>
-      <blockquote class="font-serif text-3xl md:text-4xl text-brand-fg leading-snug">
-        "The art of PR is not about <em class="text-brand-primary">speaking louder</em> — it's about speaking in a language that the heart understands, no matter the geography."
-      </blockquote>
-      <div class="mt-10 flex items-center justify-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-brand-secondary/20 flex items-center justify-center">
-          <span class="font-serif text-brand-primary text-lg font-bold">NJ</span>
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <!-- Image Column -->
+        <div class="scroll-reveal relative">
+          <div class="relative">
+            <img src="nuria-photo.jpg" alt="Nuria Jiménez - Founder of Maison Nemo" class="w-full max-w-md mx-auto rounded-2xl shadow-2xl shadow-brand-primary/10 object-cover">
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-brand-secondary/20 -z-10"></div>
+            <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-brand-primary/10 -z-10"></div>
+          </div>
         </div>
-        <div class="text-left">
-          <p class="font-sans text-sm font-medium text-brand-fg">Nuria Jiménez</p>
-          <p class="font-sans text-xs text-brand-fg/40">Founder, Maison Nemo</p>
+        
+        <!-- Content Column -->
+        <div class="scroll-reveal" style="transition-delay: 0.2s;">
+          <span class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary">Meet the Founder</span>
+          <h2 class="font-serif text-4xl md:text-5xl text-brand-fg mt-4 leading-[0.95]">Nuria Jiménez</h2>
+          <div class="w-16 h-px bg-brand-secondary mt-6 mb-6"></div>
+          
+          <blockquote class="font-serif text-2xl md:text-3xl text-brand-fg/80 leading-snug mb-8">
+            "True connection happens when we understand not just <em class="text-brand-primary">what</em> a brand says, but <em class="text-brand-primary">how</em> it resonates across cultures."
+          </blockquote>
+          
+          <p class="font-sans text-brand-fg/60 leading-relaxed mb-6">
+            With over 7 years of experience in strategic communications for leading global brands, I founded Maison Nemo to bridge the gap between Asian innovation and European markets.
+          </p>
+          <p class="font-sans text-brand-fg/60 leading-relaxed mb-8">
+            Today, Maison Nemo is a multicultural, multilingual team combining deep cultural intelligence with strategic storytelling — helping Asian brands find their authentic voice in Europe.
+          </p>
+          
+          <div class="flex items-center gap-4">
+            <a href="https://linkedin.com" target="_blank" class="inline-flex items-center gap-2 font-sans text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              Connect on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -509,7 +526,8 @@ tailwind.config = {
         <div class="scroll-reveal group bg-brand-bg rounded-3xl p-10 md:p-12 hover-lift border border-brand-fg/5 flex flex-col justify-between">
           <div>
             <h3 class="font-serif text-2xl md:text-[1.65rem] text-brand-fg mb-2 leading-snug"><em>Pilot 1</em> — European Narrative Blueprint</h3>
-            <p class="font-serif text-4xl text-brand-primary mt-6 mb-6">€4,000–6,000</p>
+            <p class="font-sans text-sm text-brand-secondary uppercase tracking-wider mt-6">Starting at</p>
+            <p class="font-serif text-4xl text-brand-primary mb-6">€3,500</p>
             <p class="font-sans text-sm text-brand-fg/50 leading-relaxed">
               A cultural and strategic translation of your brand for Europe. We build your narrative foundation — from brand positioning to key messaging — so you enter the market with clarity and confidence.
             </p>
@@ -529,7 +547,8 @@ tailwind.config = {
           </div>
           <div>
             <h3 class="font-serif text-2xl md:text-[1.65rem] text-brand-fg mb-2 leading-snug mt-4"><em>Pilot 2</em> — 60-Day PR Fast Track</h3>
-            <p class="font-serif text-4xl text-brand-primary mt-6 mb-6">€3,500–5,000</p>
+            <p class="font-sans text-sm text-brand-secondary uppercase tracking-wider mt-6">Starting at</p>
+            <p class="font-serif text-4xl text-brand-primary mb-6">€4,500</p>
             <p class="font-sans text-sm text-brand-fg/50 leading-relaxed">
               A focused PR sprint to generate your first media visibility. We identify the right journalists, craft your pitch, and secure initial press coverage within 60 days of launch.
             </p>
@@ -543,7 +562,8 @@ tailwind.config = {
         <div class="scroll-reveal group bg-brand-bg rounded-3xl p-10 md:p-12 hover-lift border border-brand-fg/5 flex flex-col justify-between" style="transition-delay: 0.3s;">
           <div>
             <h3 class="font-serif text-2xl md:text-[1.65rem] text-brand-fg mb-2 leading-snug"><em>Pilot 3</em> — European Event Concept</h3>
-            <p class="font-serif text-4xl text-brand-primary mt-6 mb-6">€4,000</p>
+            <p class="font-sans text-sm text-brand-secondary uppercase tracking-wider mt-6">Tailored to your needs</p>
+            <p class="font-serif text-4xl text-brand-primary mb-6">Custom Quote</p>
             <p class="font-sans text-sm text-brand-fg/50 leading-relaxed">
               Creative + strategic blueprint for your first European launch event. From venue curation to guest list strategy, we design an event that makes an unforgettable first impression.
             </p>
@@ -582,7 +602,7 @@ tailwind.config = {
       </div>
 
       <div class="text-center mt-8 scroll-reveal">
-        <p class="font-sans text-sm text-brand-fg/40">Prefer email? <a id="booking-email-link" href="mailto:hello@maison-nemo.com" class="text-brand-primary hover:text-brand-secondary transition-colors underline underline-offset-2">Contact us directly</a></p>
+        <p class="font-sans text-sm text-brand-fg/40">Prefer email? <a id="booking-email-link" href="/cdn-cgi/l/email-protection#a0c8c5cccccfe0cdc1c9d3cfce8dcec5cdcf8ec3cfcd" class="text-brand-primary hover:text-brand-secondary transition-colors underline underline-offset-2">Contact us directly</a></p>
       </div>
     </div>
   </section>
@@ -632,53 +652,53 @@ tailwind.config = {
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-brand-fg/10 py-16 px-6 md:px-10">
+  <footer class="bg-brand-dark border-t border-brand-secondary/20 py-16 px-6 md:px-10">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div class="md:col-span-2">
           <a id="footer-home-link" href="#" class="flex items-center mb-6">
-            <img src="Maison_Nemo-4.png" alt="Maison Nemo" class="h-8 w-auto">
+            <img src="Maison_Nemo-4.png" alt="Maison Nemo" class="h-12 w-auto brightness-0 invert opacity-90">
           </a>
-          <p class="font-sans text-sm text-brand-fg/40 max-w-sm leading-relaxed">
+          <p class="font-sans text-sm text-brand-bg/60 max-w-sm leading-relaxed">
             Strategic PR agency bridging Asia and Europe. We help brands tell stories that resonate across cultures and markets.
           </p>
           <div class="flex items-center gap-4 mt-6">
-            <a id="footer-linkedin-link" href="#" class="w-9 h-9 rounded-full border border-brand-fg/10 flex items-center justify-center text-brand-fg/40 hover:text-brand-primary hover:border-brand-primary/30 transition-all">
+            <a id="footer-linkedin-link" href="#" class="w-9 h-9 rounded-full border border-brand-bg/20 flex items-center justify-center text-brand-bg/60 hover:text-brand-secondary hover:border-brand-secondary/50 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a id="footer-instagram-link" href="#" class="w-9 h-9 rounded-full border border-brand-fg/10 flex items-center justify-center text-brand-fg/40 hover:text-brand-primary hover:border-brand-primary/30 transition-all">
+            <a id="footer-instagram-link" href="#" class="w-9 h-9 rounded-full border border-brand-bg/20 flex items-center justify-center text-brand-bg/60 hover:text-brand-secondary hover:border-brand-secondary/50 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
-            <a id="footer-twitter-link" href="#" class="w-9 h-9 rounded-full border border-brand-fg/10 flex items-center justify-center text-brand-fg/40 hover:text-brand-primary hover:border-brand-primary/30 transition-all">
+            <a id="footer-twitter-link" href="#" class="w-9 h-9 rounded-full border border-brand-bg/20 flex items-center justify-center text-brand-bg/60 hover:text-brand-secondary hover:border-brand-secondary/50 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
             </a>
           </div>
         </div>
 
         <div>
-          <h4 class="font-sans text-xs tracking-[0.2em] uppercase text-brand-fg/30 mb-5">Services</h4>
+          <h4 class="font-sans text-xs tracking-[0.2em] uppercase text-brand-secondary mb-5">Services</h4>
           <ul class="space-y-3">
-            <li><a id="footer-pr-link" href="#" class="font-sans text-sm text-brand-fg/50 hover:text-brand-primary transition-colors">PR Strategy</a></li>
-            <li><a id="footer-events-link" href="#" class="font-sans text-sm text-brand-fg/50 hover:text-brand-primary transition-colors">Event Design</a></li>
-            <li><a id="footer-media-link" href="#" class="font-sans text-sm text-brand-fg/50 hover:text-brand-primary transition-colors">Media Relations</a></li>
-            <li><a id="footer-consulting-link" href="#" class="font-sans text-sm text-brand-fg/50 hover:text-brand-primary transition-colors">Cultural Consulting</a></li>
+            <li><a id="footer-pr-link" href="#services" class="font-sans text-sm text-brand-bg/70 hover:text-brand-secondary transition-colors">PR Strategy</a></li>
+            <li><a id="footer-events-link" href="#services" class="font-sans text-sm text-brand-bg/70 hover:text-brand-secondary transition-colors">Event Design</a></li>
+            <li><a id="footer-media-link" href="#services" class="font-sans text-sm text-brand-bg/70 hover:text-brand-secondary transition-colors">Media Relations</a></li>
+            <li><a id="footer-consulting-link" href="#services" class="font-sans text-sm text-brand-bg/70 hover:text-brand-secondary transition-colors">Cultural Consulting</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-sans text-xs tracking-[0.2em] uppercase text-brand-fg/30 mb-5">Contact</h4>
+          <h4 class="font-sans text-xs tracking-[0.2em] uppercase text-brand-secondary mb-5">Contact</h4>
           <ul class="space-y-3">
-            <li><a id="footer-email-link" href="mailto:hello@maison-nemo.com" class="font-sans text-sm text-brand-fg/50 hover:text-brand-primary transition-colors">hello@maison-nemo.com</a></li>
-            <li><span class="font-sans text-sm text-brand-fg/50">Barcelona · Shanghai · Tokyo</span></li>
+            <li><a id="footer-email-link" href="mailto:hello@maison-nemo.com" class="font-sans text-sm text-brand-bg/70 hover:text-brand-secondary transition-colors">hello@maison-nemo.com</a></li>
+            <li><span class="font-sans text-sm text-brand-bg/70">Barcelona · Madrid · Tokyo</span></li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-16 pt-8 border-t border-brand-fg/10 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="font-sans text-xs text-brand-fg/30">© 2025 Maison Nemo. All rights reserved.</p>
+      <div class="mt-16 pt-8 border-t border-brand-bg/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-sans text-xs text-brand-bg/50">© 2025 Maison Nemo. All rights reserved.</p>
         <div class="flex items-center gap-6">
-          <a id="footer-privacy-link" href="#" class="font-sans text-xs text-brand-fg/30 hover:text-brand-primary transition-colors">Privacy Policy</a>
-          <a id="footer-terms-link" href="#" class="font-sans text-xs text-brand-fg/30 hover:text-brand-primary transition-colors">Terms of Service</a>
+          <a id="footer-privacy-link" href="#" class="font-sans text-xs text-brand-bg/50 hover:text-brand-secondary transition-colors">Privacy Policy</a>
+          <a id="footer-terms-link" href="#" class="font-sans text-xs text-brand-bg/50 hover:text-brand-secondary transition-colors">Terms of Service</a>
         </div>
       </div>
     </div>
