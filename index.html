@@ -148,6 +148,58 @@ tailwind.config = {
     pointer-events: none;
     z-index: 1;
   }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(245, 244, 235, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu.open {
+    display: flex;
+    opacity: 1;
+  }
+  .mobile-menu a {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: #7a5318; }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+    padding: 8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #333;
+    transition: all 0.3s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .desktop-nav { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -155,9 +207,9 @@ tailwind.config = {
 
   <!-- Announcement Bar -->
   <div class="bg-brand-fg text-brand-bg anim-fade" style="animation-delay: 0s;">
-    <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center gap-4 text-sm font-sans tracking-wide">
-      <span class="opacity-80">Now accepting new clients for Q3 2026. Limited availability.</span>
-      <a id="announce-cta" href="#contact" class="inline-flex items-center gap-1.5 border border-brand-bg/30 rounded-full px-4 py-1 text-xs font-medium hover:bg-brand-bg/10 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-2.5 flex items-center justify-between md:justify-center gap-3 md:gap-4 text-sm font-sans tracking-wide">
+      <span class="opacity-80 text-xs md:text-sm">Now accepting new clients for Q3 2026. Limited availability.</span>
+      <a id="announce-cta" href="#contact" class="inline-flex items-center gap-1.5 border border-brand-bg/30 rounded-full px-3 md:px-4 py-1 text-xs font-medium hover:bg-brand-bg/10 transition-colors whitespace-nowrap flex-shrink-0">
         Get in touch
       </a>
     </div>
@@ -165,31 +217,46 @@ tailwind.config = {
 
   <!-- Navigation -->
   <nav class="relative z-30 anim-fade delay-200">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 md:py-6 flex items-center justify-between">
       <!-- Logo -->
       <a id="nav-home-link" href="#" class="flex items-center">
-        <img src="Maison_Nemo-4.png" alt="Maison Nemo" class="h-14 w-auto">
+        <img src="Maison_Nemo-4.png" alt="Maison Nemo" class="h-10 md:h-14 w-auto">
       </a>
-      <!-- Nav links -->
-      <div class="flex items-center gap-8">
+      <!-- Desktop Nav links -->
+      <div class="desktop-nav flex items-center gap-8">
         <a id="nav-services-link" href="#services" class="nav-link font-sans text-sm text-brand-fg/70 hover:text-brand-fg transition-colors">Services</a>
         <a id="nav-approach-link" href="#approach" class="nav-link font-sans text-sm text-brand-fg/70 hover:text-brand-fg transition-colors">Approach</a>
         <a id="nav-about-link" href="#about" class="nav-link font-sans text-sm text-brand-fg/70 hover:text-brand-fg transition-colors">About</a>
         <a id="nav-pr-events-link" href="#contact" class="font-sans text-sm border border-brand-fg/20 rounded-full px-5 py-2 text-brand-fg hover:bg-brand-fg hover:text-brand-bg transition-all duration-300">Get in Touch</a>
       </div>
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden px-6">
-    <!-- Floating decorative elements -->
-    <div class="absolute top-[15%] left-[18%] w-16 h-16 rounded-2xl bg-brand-secondary/20 float-a anim-fade delay-600"></div>
-    <div class="absolute top-[12%] right-[22%] w-10 h-10 rounded-full bg-brand-primary/15 float-b anim-fade delay-800"></div>
-    <div class="absolute bottom-[20%] right-[15%] w-14 h-14 rounded-full bg-brand-secondary/25 float-c anim-fade delay-700"></div>
-    <div class="absolute bottom-[25%] left-[12%] w-8 h-8 rotate-45 bg-brand-primary/10 float-b anim-fade delay-900"></div>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#approach" onclick="toggleMenu()">Approach</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#pilot-packs" onclick="toggleMenu()">Pilot Packs</a>
+    <a href="#contact" onclick="toggleMenu()" class="mt-4 inline-flex items-center gap-2 font-sans !text-base border border-brand-fg/20 rounded-full px-8 py-3 hover:bg-brand-fg hover:!text-brand-bg transition-all">Get in Touch</a>
+  </div>
 
-    <!-- Central decorative image (like the bottle in TrumpRx) -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[400px] opacity-[0.08] anim-scale delay-300 pointer-events-none">
+  <!-- Hero Section -->
+  <section class="relative min-h-[70vh] md:min-h-[85vh] flex flex-col items-center justify-center overflow-hidden px-6 pt-4 md:pt-0">
+    <!-- Floating decorative elements - hidden on small mobile -->
+    <div class="hidden md:block absolute top-[15%] left-[18%] w-16 h-16 rounded-2xl bg-brand-secondary/20 float-a anim-fade delay-600"></div>
+    <div class="hidden md:block absolute top-[12%] right-[22%] w-10 h-10 rounded-full bg-brand-primary/15 float-b anim-fade delay-800"></div>
+    <div class="hidden md:block absolute bottom-[20%] right-[15%] w-14 h-14 rounded-full bg-brand-secondary/25 float-c anim-fade delay-700"></div>
+    <div class="hidden md:block absolute bottom-[25%] left-[12%] w-8 h-8 rotate-45 bg-brand-primary/10 float-b anim-fade delay-900"></div>
+
+    <!-- Central decorative image -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] md:w-[320px] h-[280px] md:h-[400px] opacity-[0.08] anim-scale delay-300 pointer-events-none">
       <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M160 20 C 80 20, 20 100, 20 200 C 20 300, 80 380, 160 380 C 240 380, 300 300, 300 200 C 300 100, 240 20, 160 20 Z" fill="#7a5318"/>
         <path d="M120 0 L200 0 L200 40 L120 40 Z" fill="#7a5318" rx="4"/>
@@ -199,24 +266,37 @@ tailwind.config = {
     <!-- Hero Text -->
     <div class="relative z-10 text-center max-w-6xl mx-auto">
       <h1 class="font-serif leading-[0.9] tracking-tight text-brand-fg">
-        <span class="block text-[clamp(3rem,10vw,10rem)] anim-fade-up delay-300">Bridge the</span>
-        <span class="block text-[clamp(3rem,10vw,10rem)] anim-fade-up delay-400"><em class="gradient-gold">world's</em> markets</span>
-        <span class="block text-[clamp(3rem,10vw,10rem)] anim-fade-up delay-500">Asia & Europe</span>
+        <span class="block text-[2.5rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[7rem] xl:text-[10rem] anim-fade-up delay-300">Bridge the</span>
+        <span class="block text-[2.5rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[7rem] xl:text-[10rem] anim-fade-up delay-400"><em class="gradient-gold">world's</em> markets</span>
+        <span class="block text-[2.5rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[7rem] xl:text-[10rem] anim-fade-up delay-500">Asia & Europe</span>
       </h1>
 
-      <p class="mt-10 font-sans text-lg md:text-xl text-brand-fg/60 max-w-xl mx-auto leading-relaxed anim-fade-up delay-700">
+      <p class="mt-6 md:mt-10 font-sans text-base md:text-xl text-brand-fg/60 max-w-xl mx-auto leading-relaxed anim-fade-up delay-700 px-2">
         Strategic PR for brands entering new markets. We craft narratives that resonate across cultures and borders.
       </p>
 
-      <!-- CTA Search-style input (TrumpRx style) -->
-      <div class="mt-12 mb-8 flex items-center justify-center gap-0 anim-fade-up delay-900">
-        <div class="relative flex items-center bg-white rounded-l-full border border-brand-fg/10 shadow-lg shadow-brand-primary/5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ad854a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-6 mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <input type="email" id="hero-email" placeholder="Enter your email for a consultation" class="w-72 md:w-96 py-4 pr-4 bg-transparent font-sans text-brand-fg placeholder:text-brand-fg/30 outline-none text-sm">
+      <!-- CTA - Stacked on mobile, inline on desktop -->
+      <div class="mt-8 md:mt-12 mb-8 anim-fade-up delay-900">
+        <!-- Desktop: inline input + button -->
+        <div class="hidden md:flex items-center justify-center gap-0">
+          <div class="relative flex items-center bg-white rounded-l-full border border-brand-fg/10 shadow-lg shadow-brand-primary/5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ad854a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-6 mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" id="hero-email" placeholder="Enter your email for a consultation" class="w-72 md:w-96 py-4 pr-4 bg-transparent font-sans text-brand-fg placeholder:text-brand-fg/30 outline-none text-sm">
+          </div>
+          <a href="#booking" class="bg-brand-fg text-brand-bg font-sans text-sm font-medium px-8 py-4 rounded-r-full hover:bg-brand-primary transition-colors duration-300 whitespace-nowrap">
+            Get Started
+          </a>
         </div>
-        <a href="#booking" class="bg-brand-fg text-brand-bg font-sans text-sm font-medium px-8 py-4 rounded-r-full hover:bg-brand-primary transition-colors duration-300 whitespace-nowrap">
-          Get Started
-        </a>
+        <!-- Mobile: stacked layout -->
+        <div class="flex md:hidden flex-col items-center gap-3 px-2">
+          <div class="relative flex items-center w-full bg-white rounded-full border border-brand-fg/10 shadow-lg shadow-brand-primary/5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ad854a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-4 mr-2 flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" placeholder="Your email" class="w-full py-3.5 pr-4 bg-transparent font-sans text-brand-fg placeholder:text-brand-fg/30 outline-none text-sm">
+          </div>
+          <a href="#booking" class="w-full bg-brand-fg text-brand-bg font-sans text-sm font-medium px-8 py-3.5 rounded-full hover:bg-brand-primary transition-colors duration-300 text-center">
+            Get Started
+          </a>
+        </div>
       </div>
     </div>
 
@@ -258,12 +338,12 @@ tailwind.config = {
   </div>
 
   <!-- Services Section -->
-  <section id="services" class="py-32 px-6 md:px-10">
+  <section id="services" class="py-16 md:py-32 px-6 md:px-10">
     <div class="max-w-7xl mx-auto">
-      <div class="flex items-end justify-between mb-20 scroll-reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 scroll-reveal gap-4">
         <div>
           <span class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary">What We Do</span>
-          <h2 class="font-serif text-6xl md:text-7xl text-brand-fg mt-4 leading-[0.95]">We craft stories<br>that <em>cross borders</em></h2>
+          <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl text-brand-fg mt-4 leading-[0.95]">We craft stories<br>that <em>cross borders</em></h2>
         </div>
         <p class="font-sans text-brand-fg/50 max-w-sm text-sm leading-relaxed hidden md:block">
           Maison Nemo bridges the gap between Asian and European markets with culturally intelligent PR strategies.
@@ -321,7 +401,7 @@ tailwind.config = {
   </section>
 
   <!-- Approach Section (Dark) -->
-  <section id="approach" class="relative py-32 px-6 md:px-10 bg-brand-dark overflow-hidden">
+  <section id="approach" class="relative py-16 md:py-32 px-6 md:px-10 bg-brand-dark overflow-hidden">
     <!-- Subtle topology texture -->
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('https://pquxfbbxflqvtidtlrhl.supabase.co/storage/v1/object/public/hmac-uploads/brand/48e0e86d-ed7e-459b-b16f-77630f8826cf/assets/62161555-4888-4c6a-876b-3535d709df55.webp'); background-size: cover; background-position: center;"></div>
     
@@ -388,54 +468,54 @@ tailwind.config = {
   </section>
 
   <!-- Expertise Areas -->
-  <section class="py-32 px-6 md:px-10">
+  <section class="py-16 md:py-32 px-6 md:px-10">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-20 scroll-reveal">
+      <div class="text-center mb-12 md:mb-20 scroll-reveal">
         <span class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary">Industries</span>
-        <h2 class="font-serif text-5xl md:text-6xl text-brand-fg mt-4">Sectors we <em>transform</em></h2>
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-fg mt-4">Sectors we <em>transform</em></h2>
       </div>
 
       <div class="space-y-0">
         <!-- Row items with hover reveal -->
-        <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
-          <div class="flex items-center gap-8">
+        <div class="scroll-reveal group border-t border-brand-fg/10 py-6 md:py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-4 md:gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">01</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Luxury & Fashion</h3>
+            <h3 class="font-serif text-xl md:text-3xl lg:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Luxury & Fashion</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
-        <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
-          <div class="flex items-center gap-8">
+        <div class="scroll-reveal group border-t border-brand-fg/10 py-6 md:py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-4 md:gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">02</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Beauty & Wellness</h3>
+            <h3 class="font-serif text-xl md:text-3xl lg:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Beauty & Wellness</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
-        <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
-          <div class="flex items-center gap-8">
+        <div class="scroll-reveal group border-t border-brand-fg/10 py-6 md:py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-4 md:gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">03</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Food, Gastronomy & Beverages</h3>
+            <h3 class="font-serif text-xl md:text-3xl lg:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Food, Gastronomy & Beverages</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
-        <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
-          <div class="flex items-center gap-8">
+        <div class="scroll-reveal group border-t border-brand-fg/10 py-6 md:py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-4 md:gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">04</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Lifestyle & Hospitality</h3>
+            <h3 class="font-serif text-xl md:text-3xl lg:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Lifestyle & Hospitality</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
-        <div class="scroll-reveal group border-t border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
-          <div class="flex items-center gap-8">
+        <div class="scroll-reveal group border-t border-brand-fg/10 py-6 md:py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-4 md:gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">05</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Technology & Innovation</h3>
+            <h3 class="font-serif text-xl md:text-3xl lg:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Technology & Innovation</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
-        <div class="scroll-reveal group border-t border-b border-brand-fg/10 py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
-          <div class="flex items-center gap-8">
+        <div class="scroll-reveal group border-t border-b border-brand-fg/10 py-6 md:py-8 flex items-center justify-between cursor-pointer hover:pl-4 transition-all duration-500">
+          <div class="flex items-center gap-4 md:gap-8">
             <span class="font-sans text-sm text-brand-fg/30 font-medium">06</span>
-            <h3 class="font-serif text-3xl md:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Art & Culture</h3>
+            <h3 class="font-serif text-xl md:text-3xl lg:text-4xl text-brand-fg group-hover:text-brand-primary transition-colors">Art & Culture</h3>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-fg/20 group-hover:text-brand-primary group-hover:translate-x-2 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
@@ -444,7 +524,7 @@ tailwind.config = {
   </section>
 
   <!-- About / Founder Section -->
-  <section id="about" class="py-32 px-6 md:px-10">
+  <section id="about" class="py-16 md:py-32 px-6 md:px-10">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <!-- Image Column -->
@@ -485,7 +565,7 @@ tailwind.config = {
   </section>
 
   <!-- Pilot Packs Section -->
-  <section id="pilot-packs" class="relative py-32 px-6 md:px-10 bg-brand-dark overflow-hidden">
+  <section id="pilot-packs" class="relative py-16 md:py-32 px-6 md:px-10 bg-brand-dark overflow-hidden">
     <!-- Decorative gradient blobs -->
     <div class="absolute top-0 left-1/4 w-96 h-96 opacity-10" style="background: radial-gradient(circle at center, #ad854a 0%, transparent 70%);"></div>
     <div class="absolute bottom-0 right-1/4 w-64 h-64 opacity-10" style="background: radial-gradient(circle at center, #7a5318 0%, transparent 70%);"></div>
@@ -575,17 +655,17 @@ tailwind.config = {
   </section>
 
   <!-- Calendar Booking Section -->
-  <section id="booking" class="py-32 px-6 md:px-10">
+  <section id="booking" class="py-16 md:py-32 px-6 md:px-10">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-16 scroll-reveal">
         <span class="font-sans text-xs tracking-[0.3em] uppercase text-brand-secondary">Schedule a Call</span>
-        <h2 class="font-serif text-5xl md:text-6xl text-brand-fg mt-4 leading-[0.95]">Book your <em>30-minute</em><br>consultation</h2>
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-fg mt-4 leading-[0.95]">Book your <em>30-minute</em><br>consultation</h2>
         <p class="mt-6 font-sans text-brand-fg/50 max-w-lg mx-auto leading-relaxed">
           Let's discuss your brand's European ambitions. Pick a time that works for you, and we'll explore how Maison Nemo can help you cross borders.
         </p>
       </div>
 
-      <div class="scroll-reveal bg-white rounded-3xl border border-brand-fg/10 shadow-lg shadow-brand-primary/5 p-12 md:p-16 text-center" style="transition-delay: 0.2s;">
+      <div class="scroll-reveal bg-white rounded-3xl border border-brand-fg/10 shadow-lg shadow-brand-primary/5 p-8 md:p-12 lg:p-16 text-center" style="transition-delay: 0.2s;">
         <div class="w-20 h-20 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center mx-auto mb-8">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
         </div>
@@ -606,9 +686,9 @@ tailwind.config = {
   </section>
 
   <!-- Contact / CTA Section -->
-  <section id="contact" class="py-32 px-6 md:px-10">
+  <section id="contact" class="py-16 md:py-32 px-6 md:px-10">
     <div class="max-w-7xl mx-auto">
-      <div class="relative bg-brand-dark rounded-[2rem] p-16 md:p-24 overflow-hidden">
+      <div class="relative bg-brand-dark rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-16 lg:p-24 overflow-hidden">
         <!-- Decorative gradient -->
         <div class="absolute top-0 right-0 w-96 h-96 opacity-20" style="background: radial-gradient(circle at center, #ad854a 0%, transparent 70%);"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 opacity-10" style="background: radial-gradient(circle at center, #7a5318 0%, transparent 70%);"></div>
@@ -650,7 +730,7 @@ tailwind.config = {
   </section>
 
   <!-- Footer -->
-  <footer class="bg-brand-dark border-t border-brand-secondary/20 py-16 px-6 md:px-10">
+  <footer class="bg-brand-dark border-t border-brand-secondary/20 py-10 md:py-16 px-6 md:px-10">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div class="md:col-span-2">
@@ -712,6 +792,15 @@ tailwind.config = {
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
 </script>
 </body>
 </html>
